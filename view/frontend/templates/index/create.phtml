@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block AHT\Test\Block\Index\Index */
+
+$testCollection = $block->perpareEdit();
+?>
+<form style="width: 100%;" action="<?php echo $this->getUrl('hello/index/save'); ?>" method="post">
+
+    <fieldset class="fieldset">
+
+        <legend class="legend"><span><?= $testCollection != null ? __("Update Form") : __("Create Form"); ?></span></legend><br />
+
+        <div class="field name required">
+
+            <label class="label" for="name"><span><?php echo __('Name') ?></span></label>
+
+            <div class="control">
+                <?= $testCollection != null ? '<input name="id" id="id" class="input-text" value="' . $testCollection->getTest_id() . '" type="hidden" data-validate="{required:true}" />' : ''; ?>
+
+                <input name="name" id="name" title="<?php echo __('Name') ?>" class="input-text" value="<?= $testCollection != null ? $testCollection->getTest_name() : ""; ?>" type="text" data-validate="{required:true}" />
+
+            </div>
+
+        </div>
+
+        <div class="field email required">
+
+            <label class="label" for="email"><span><?php echo __('Email') ?></span></label>
+
+            <div class="control">
+
+                <input name="email" id="email" title="<?php echo __('Email') ?>" class="input-text" value="<?= $testCollection != null ? $testCollection->getTest_email() : ""; ?>" type="email" data-validate="{required:true, 'validate-email':true}" />
+
+            </div>
+
+        </div>
+
+        <div class="field telephone">
+
+            <label class="label" for="telephone"><span><?php echo __('Phone Number') ?></span></label>
+
+            <div class="control">
+
+                <input name="telephone" id="telephone" title="<?php echo __('Phone Number') ?>" value="<?= $testCollection != null ? $testCollection->getTest_phone() : ""; ?>" class="input-text" type="text" />
+
+            </div>
+
+        </div>
+
+        <div class="actions-toolbar">
+
+            <div class="primary">
+
+                <button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary" id="custom_btn">
+
+                    <span><?php echo __('Submit') ?></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+</form>

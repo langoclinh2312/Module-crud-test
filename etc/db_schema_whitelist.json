@@ -1,0 +1,14 @@
+{
+    "test": {
+        "column": {
+            "test_id": true,
+            "test_name": true,
+            "test_email": true,
+            "test_phone": true,
+            "test_Created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

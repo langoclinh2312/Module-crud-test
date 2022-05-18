@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block AHT\Test\Block\Index\Index */
+
+$testCollection = $block->getList();
+?>
+
+<a class="action primary" href="<?= $block->getBaseUrl() ?>hello/index/create">Them moi</a>
+
+<div class="table-wrapper orders-history">
+    <table class="data table table-order-items history" id="my-orders-table">
+        <caption class="table-caption"><?php echo __('Grid Record') ?></caption>
+        <thead>
+            <tr>
+                <th scope="col" class="col id"><?php echo __('ID') ?></th>
+                <th scope="col" class="col name"><?php echo __('Name') ?></th>
+                <th scope="col" class="col email"><?php echo __('Email') ?></th>
+                <th scope="col" class="col telephone"><?php echo __('Telephone') ?></th>
+                <th scope="col" class="col createat"><?php echo __('Action') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($testCollection as $item) : ?>
+                <tr>
+                    <td data-th="<?= $block->escapeHtml(__('ID')) ?>" class="col id">
+                        <?php echo $item->getTest_id() ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Name')) ?>" class="col name">
+                        <?php echo $item->getTest_name() ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Email')) ?>" class="col email">
+                        <?php echo $item->getTest_email() ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Telephone')) ?>" class="col telephone">
+                        <?php echo $item->getTest_phone() ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Action')) ?>" class="col title">
+                        <a class="action primary" href="<?= $block->getBaseUrl() ?>hello/index/edit/id/<?= $item->getTest_id() ?>">Edit</a>
+                        <a class="action primary" href="<?= $block->getBaseUrl() ?>hello/index/delete/id/<?= $item->getTest_id() ?>">Delete</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

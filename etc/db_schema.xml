@@ -1,0 +1,12 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="test" resource="default" engine="innodb" comment="Table comment">
+        <column xsi:type="int" name="test_id" padding="11" identity="true"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="test_id"/>
+        </constraint>
+        <column xsi:type="varchar" name="test_name" length="1024"/>
+        <column xsi:type="varchar" name="test_email" length="1024"/>
+        <column xsi:type="varchar" name="test_phone" length="1024"/>
+        <column xsi:type="timestamp" name="test_Created_at" default="CURRENT_TIMESTAMP"/>
+    </table>
+</schema>
